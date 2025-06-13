@@ -1,15 +1,36 @@
-Source: template-repository
-Section: unknown
+Source: spark-store
+Maintainer: shenmo <shenmo@spark-app.store>
+Section: utils
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends:
+ debhelper (>= 9),
+ pkg-config,
+ qtchooser (>= 55-gc9562a1-1~) | qt5-default,
+ qtbase5-dev,
+ libqt5svg5-dev,
+ qttools5-dev-tools,
+ qtwebengine5-dev,
+ libdtkcore-dev (>= 5.0),
+ libdtkgui-dev (>= 5.0),
+ libdtkwidget-dev (>= 5.0)
+Standards-Version: 4.1.7
+Homepage: https://www.spark-app.store/
 
-Package: template-repository
+Package: spark-store
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Provides: spark-store-console-in-container
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ dde-qt5integration,
+ curl,
+ openssl,
+ aria2,
+ gnupg,
+ zenity,
+ policykit-1 | pkexec,
+ libnotify-bin,
+ qtwayland5,
+ desktop-file-utils,
+ dpkg-dev,
+ lsb-release,
+Description: Spark Store
+ A community powered app store, based on DTK.
